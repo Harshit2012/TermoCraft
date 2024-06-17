@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermoCraft</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.jpg">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="logo.jpg" alt="offline" width="50" height="50" style="border-radius: 50%;">
+              </a>
+            <a class="navbar-brand" href="/">TermoCraft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how_implement_json">How to Implement JSON</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="intro text-center mb-5">
+            <h1>Welcome to the TermoCraft</h1>
+            <p>Customize your Windows 11 Terminal theme and export the configuration as a JSON file.</p>
+            <a class="btn btn-primary" href="#theme">Get Started</a>
+        </div>
+        <div id="features" class="row mb-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Easy Customization</h5>
+                        <p class="card-text">Customize the look and feel of your terminal with easy-to-use controls.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Responsive styling using bootstrap</h5>
+                        <p class="card-text">This website is responsive and can be used in any device.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Export & Implement</h5>
+                        <p class="card-text">Export your theme as a JSON file and easily implement it in your terminal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="theme" class="row mb-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Theme Settings</h5>
+                        <div class="mb-3">
+                            <label for="backgroundColor" class="form-label">Background Color</label>
+                            <input type="color" class="form-control" id="backgroundColor">
+                        </div>
+                        <div class="mb-3">
+                            <label for="foregroundColor" class="form-label">Foreground Color</label>
+                            <input type="color" class="form-control" id="foregroundColor">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cursorColor" class="form-label">Cursor Color</label>
+                            <input type="color" class="form-control" id="cursorColor">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fontFamily" class="form-label">Font Family</label>
+                            <select class="form-select" id="fontFamily">
+                                <option value="Consolas">Consolas</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Lucida Console">Lucida Console</option>option value="Consolas">Consolas</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Lucida Console">Lucida Console</option>
+                                <option value="Fira Code">Fira Code</option>
+                                <option value="Hack">Hack</option>
+                                <option value="JetBrains Mono">JetBrains Mono</option>
+                                <option value="Source Code Pro">Source Code Pro</option>
+                                <option value="Ubuntu Mono">Ubuntu Mono</option>
+                                <option value="DejaVu Sans Mono">DejaVu Sans Mono</option>
+                                <option value="Inconsolata">Inconsolata</option>
+                                <option value="Roboto Mono">Roboto Mono</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="generateTheme()">Generate Theme</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Export Theme</h5>
+                        <p>Your generated theme will appear here. Click the button below to export it as a JSON file.
+                        </p>
+                        <div id="generatedTheme" class="generated-theme"></div>
+                        <button class="btn btn-success mt-3" onclick="exportTheme()">Export Theme</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="how_implement_json" class="row mb-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">How to Implement the JSON File</h5>
+                        <ol>
+                            <li>Open Windows Terminal.</li>
+                            <li>Click on the dropdown arrow in the title bar and select "Settings".</li>
+                            <li>In the settings.json file, find the "profiles" section.</li>
+                            <li>Paste the JSON theme configuration inside the "defaults" or a specific profile block.
+                            </li>
+                            <li>Save the file and restart Windows Terminal to apply the changes.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
